@@ -30,7 +30,7 @@ jobs:
         id: build_projects 
         shell: pwsh
         run: |
-            Get-ChildItem -Filter *.csproj -Exclude *test* -Recurse -File | ForEach-Object {
+            Get-ChildItem -Path src/csharp/ -Filter *.csproj -Exclude *test* -Recurse -File | ForEach-Object {
                 dotnet build $PSItem.FullName `
                 --configuration Release
             }
